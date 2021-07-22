@@ -5,7 +5,7 @@ import Picker from "./Picker";
 
 import "../index.css";
 
-function Room({ room, index, updateDisbution }) {
+function Room({ room, index, updateDisbution, disabled }) {
   // 房間人數
   const [adultCount, setAdultCount] = useState(0);
   const [childCount, setChildCount] = useState(0);
@@ -24,6 +24,7 @@ function Room({ room, index, updateDisbution }) {
         max={room.max - childCount}
         count={adultCount}
         setCount={setAdultCount}
+        disabled={disabled}
       />
       <Picker
         title="小孩"
@@ -31,6 +32,7 @@ function Room({ room, index, updateDisbution }) {
         max={room.max - adultCount}
         count={childCount}
         setCount={setChildCount}
+        disabled={disabled}
       />
     </div>
   );

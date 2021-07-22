@@ -1,8 +1,8 @@
 import RoomPicker from "./pages/RoomPicker/RoomPicker";
 
-const PEOPLE = 5;
+const PEOPLE = 3;
 const ROOMS = [
-  { min: 2, max: 5 },
+  { min: 2, max: 4 },
   { min: 1, max: 2 }
 ];
 

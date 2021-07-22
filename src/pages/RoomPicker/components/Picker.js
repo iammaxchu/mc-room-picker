@@ -1,14 +1,21 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 import "../index.css";
 import minus_img from "../../images/minus.png";
 import plus_img from "../../images/plus.png";
 
 const buttonOpacityStyle = { opacity: 0.48 };
+const inputFocusStyle = { border: "1px solid #1e9fd2" };
+const inputBlurStyle = { border: "1px solid #bfbfbf" };
 
-function Picker({ title, subtitle, max, count, setCount }) {
+function Picker({ title, subtitle, max, count, setCount, disabled }) {
+  // 儲存輸入框的 focus 狀態
+  const [inputFocus, setInputFocus] = useState(false);
+
   // 手動輸入
   function handleInputChange(e) {
+    if (disabled) return;
     const value = parseInt(e.target.value);
     if (isNaN(value) || value < 0) {
       setCount(0);
@@ -21,8 +28,19 @@ function Picker({ title, subtitle, max, count, setCount }) {
     }
   }
 
+  // 點選輸入框時
+  function handleInputClick() {
+    setInputFocus(true);
+  }
+
+  // 離開輸入框時
+  function handleInputBlur() {
+    setInputFocus(false);
+  }
+
   // 按鈕 - 1
   function handleMinusOne() {
+    if (disabled) return;
     setCount(prev => {
       if (prev > 0) {
         return prev - 1;
@@ -34,6 +52,7 @@ function Picker({ title, subtitle, max, count, setCount }) {
 
   // 按鈕 + 1
   function handlePlusOne() {
+    if (disabled) return;
     setCount(prev => {
       if (prev >= max) {
         return prev;
@@ -52,23 +71,29 @@ function Picker({ title, subtitle, max, count, setCount }) {
       <div className="picker-control-container">
         <div
           className="picker-button"
-          style={count === 0 ? buttonOpacityStyle : null}
+          style={count === 0 || disabled ? buttonOpacityStyle : null}
           onClick={handleMinusOne}
         >
           <img src={minus_img} alt="minus" />
         </div>
-        <div className="picker-input-conatiner">
+        <div
+          style={inputFocus ? inputFocusStyle : inputBlurStyle}
+          className="picker-input-conatiner"
+        >
           <input
             className="picker-input"
             type="number"
             step={1}
             value={count}
             onChange={handleInputChange}
+            onClick={handleInputClick}
+            onBlur={handleInputBlur}
+            disabled={disabled}
           />
         </div>
         <div
           className="picker-button"
-          style={count === max ? buttonOpacityStyle : null}
+          style={count === max || disabled ? buttonOpacityStyle : null}
           onClick={handlePlusOne}
         >
           <img src={plus_img} alt="plus" />
