@@ -1,0 +1,125 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.main-title {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  color: #262626;
+}
+
+.main-sub-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.room-main-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.room-title {
+  display: flex;
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+
+.root-devider {
+  background: rgba(0, 0, 0, 0.08);
+  height: 1px;
+  align-self: stretch;
+}
+
+.picker-main-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.picker-title-container {
+  flex: 1;
+}
+
+.picker-title {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+}
+
+.picker-subtitle {
+  font-family: Noto Sans TC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8c8c8c;
+}
+
+.picker-control-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.picker-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+
+  background: #ffffff;
+  border: 1px solid #1e9fd2;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.picker-input-conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0px 8px;
+
+  background: #ffffff;
+  border: 1px solid #bfbfbf;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.picker-input {
+  width: 32px;
+  height: 20px;
+  border: 0;
+  text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  opacity: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input:focus {
+  outline: none;
+}
